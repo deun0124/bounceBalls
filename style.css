@@ -11,11 +11,12 @@ canvas{
     display: flex;
     justify-content: center;
     margin: auto;
+    background: cornsilk;
 }
 .lives {
     display: flex;
-    justify-content: right;
-    margin: auto;
+    justify-content: center;
+    
 }
 
 

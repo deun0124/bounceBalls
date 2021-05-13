@@ -58,9 +58,10 @@ function drawBrick() {
 var paddleWidth = 100;
 var paddleHeight = 15;
 var paddleX = (canvas.width - paddleWidth) / 2;
+var paddlePadding= canvas.height - paddleHeight*2
 function drawPaddle() {
     ctx.beginPath();
-    ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+    ctx.rect(paddleX, canvas.height - paddleHeight*2, paddleWidth, paddleHeight);
     ctx.fillStyle = "#00BFFF";
     ctx.fill();
     ctx.closePath();
@@ -77,11 +78,7 @@ function showGameOverText() {
 var score = 0;
 var lives = 3;
 
-function drawLives() {
-    ctx.font = "16px Arial"
-    ctx.fillStyle = "#5858FA"
-    ctx.fillText("Lives : " + lives, canvas.width - 90, 15);
-}
+
 
 function bouncBall() {
     for (var i = 0; i < brickCol; i++) {
@@ -119,6 +116,16 @@ restartButton.addEventListener('click', () => {
     document.location.reload()
 })
 
+document.addEventListener('mousemove', mouseMove);
+
+function mouseMove(e){
+    var relativeX = e.clientX - canvas.offsetLeft;
+    if(relativeX > 0 && relativeX <canvas.width){
+        paddleX= relativeX - paddleWidth/2;
+    }
+
+
+}
 
 function draw() {
     //이전 프레임 지우기
@@ -139,7 +146,7 @@ function draw() {
     } else if (y <= radius) {
         vy *= -1;
 
-    } else if (y >= canvas.height - radius) {
+    } else if (y >=paddlePadding) {
         if (x > paddleX && x < paddleX + paddleWidth) {
 
             vy *= -1;
@@ -147,9 +154,9 @@ function draw() {
             lives--;
 
             if (!lives) {
-                showGameOverText();
+                alert("Game Over..")
 
-                // document.location.reload();
+                document.location.reload();
             } else {
                 x = canvas.width / 2;
                 y = canvas.height - 40;
