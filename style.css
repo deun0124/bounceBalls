@@ -1,7 +1,9 @@
 h1{
+    font-family: '국립박물관문화재단클래식B';
     align-content: center;
     display : flex;
     justify-content: center;
+    color : rebeccapurple;
 }
 
 canvas{
@@ -16,7 +18,8 @@ canvas{
 .lives {
     display: flex;
     justify-content: center;
-    
+    font-family: '국립박물관문화재단클래식B';
+    color : red;
 }
 
 
@@ -29,4 +32,11 @@ canvas{
     height: 100%;
     background-color: rgb(0,0,0, 0.5);
     z-index: 9999;
+}
+
+@font-face {
+    font-family: '국립박물관문화재단클래식B';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/국립박물관문화재단클래식B.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
