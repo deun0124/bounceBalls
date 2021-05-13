@@ -1,0 +1,16 @@
+h1{
+    align-content: center;
+    display : flex;
+    justify-content: center;
+}
+div{
+    justify-content: center;
+}
+canvas{
+    justify-content: center;
+}
+#Canvas{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
